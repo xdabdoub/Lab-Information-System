@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<HBox fx:id="bookmark" alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="393.0" spacing="25.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="48.0" prefWidth="48.0">
+         <children>
+            <Rectangle fx:id="background" arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="48.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="48.0" />
+            <ImageView fx:id="image" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
+      <Label fx:id="entityId" prefHeight="17.0" prefWidth="112.0" style="-fx-font-size: 12px; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-weight: 400;" text="Yazan Hamarsheh" />
+      <Label fx:id="bookmarkDate" prefHeight="17.0" prefWidth="69.0" style="-fx-font-family: Poppins; -fx-font-style: normal; -fx-font-size: 12px;" text="01/05/2025" />
+      <StackPane prefHeight="29.0" prefWidth="76.0">
+         <children>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="29.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #0D1E2F; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="76.0" />
+            <Button fx:id="viewB" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: Poppins; -fx-font-weight: 700; -fx-font-style: normal;" text="View" />
+         </children>
+      </StackPane>
+   </children>
+</HBox>

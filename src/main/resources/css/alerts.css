@@ -1,0 +1,55 @@
+.alert {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-font-size: 16px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 20px;
+    -fx-pref-width: 320px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.5, 0, 2);
+}
+
+/* Header style */
+.alert .alert-header {
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #222222;
+    -fx-padding: 10px 0;
+    -fx-border-bottom: 1px solid #e0e0e0;
+}
+
+/* Content style */
+.alert .alert-content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-padding: 15px 0;
+}
+
+/* Button style */
+.alert .button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 8px;
+    -fx-min-width: 100px;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 2);
+}
+
+/* Button hover effect */
+.alert .button:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Button for cancel or secondary actions */
+.alert .button.cancel {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333333;
+}
+
+.alert .button.cancel:hover {
+    -fx-background-color: #b3b3b3;
+}

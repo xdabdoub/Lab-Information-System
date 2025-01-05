@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="540.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="48.0" prefWidth="48.0">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="48.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #D2F9DB;" width="48.0" />
+            <ImageView fx:id="image" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
+      <Label fx:id="title" style="-fx-text-fill: #82868C; -fx-font-family: Poppins; -fx-font-size: 12px; -fx-font-style: normal; -fx-font-weight: 400;" text="Test" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent; -fx-stroke-width: 0;" />
+      <Label fx:id="date" style="-fx-text-fill: #82868C; -fx-font-family: Poppins; -fx-font-size: 12px; -fx-font-style: normal; -fx-font-weight: 400;" text="01/01/2025 @ 10:45:02 AM" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent; -fx-stroke-width: 0;" width="87.0" />
+      <Label fx:id="id" style="-fx-text-fill: #82868C; -fx-font-family: Poppins; -fx-font-size: 12px; -fx-font-style: normal; -fx-font-weight: 400;" text="#210" />
+      <Label fx:id="status" style="-fx-text-fill: #82868C; -fx-font-family: Poppins; -fx-font-size: 12px; -fx-font-style: normal; -fx-font-weight: 400;" text="Updated" />
+   </children>
+</HBox>

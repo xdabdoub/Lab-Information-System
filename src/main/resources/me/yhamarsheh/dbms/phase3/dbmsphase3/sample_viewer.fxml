@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleViewerController">
+    <items>
+        <SplitPane dividerPositions="0.16058394160583941" prefHeight="160.0" prefWidth="200.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1078.0" prefWidth="519.0">
+                    <children>
+                        <VBox layoutX="-4.0" layoutY="-6.0" prefHeight="1090.0" prefWidth="310.0" style="-fx-background-color: #F6F4F5; -fx-pref-width: 310px; -fx-pref-height: 1080;">
+                            <children>
+                                <VBox prefHeight="78.0" prefWidth="225.0">
+                                    <children>
+                                        <ImageView fitHeight="76.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="https://i.ibb.co/RH7hjHW/birzeit.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="26.25" left="32.0" right="54.0" top="29.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <Line endX="209.5" startX="-100.0" style="-fx-stroke: #E4E3E3;" />
+                                <VBox prefHeight="200.0" prefWidth="100.0" />
+                                <VBox prefHeight="516.0" prefWidth="311.0">
+                                    <children>
+                                        <BottomNavigationButton fx:id="dashboardB" onAction="#onDashboard" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/bgwTxS3/trending-up.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Dashboard">
+                                            <padding>
+                                                <Insets right="20.0" />
+                                            </padding>
+                                        </BottomNavigationButton>
+                                        <HBox prefHeight="32.0" prefWidth="200.0" />
+                                        <HBox prefHeight="27.0" prefWidth="200.0">
+                                            <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent; -fx-stroke: transparent;" width="14.0" />
+                                                <BottomNavigationButton fx:id="patientB" onAction="#onPatients" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/hf1xryn/patients.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Patients">
+                                                    <padding>
+                                                        <Insets right="63.0" />
+                                                    </padding>
+                                                </BottomNavigationButton>
+                                            </children>
+                                        </HBox>
+                                        <HBox prefHeight="32.0" prefWidth="200.0" />
+                              <HBox prefHeight="27.0" prefWidth="200.0">
+                                 <children>
+                                    <Rectangle arcHeight="12.0" arcWidth="12.0" fill="DODGERBLUE" height="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2C5C89; -fx-stroke: transparent;" width="14.0" />
+                                    <BottomNavigationButton fx:id="samplesB1" onAction="#onSamples" prefHeight="32.0" prefWidth="275.0" style="-fx-graphic: url(&quot;https://i.ibb.co/FqwsG5f/donut-small.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Samples">
+                                       <padding>
+                                          <Insets right="40.0" />
+                                       </padding>
+                                    </BottomNavigationButton>
+                                 </children>
+                              </HBox>
+                                        <HBox prefHeight="27.0" prefWidth="200.0" />
+                                        <BottomNavigationButton fx:id="testRB" onAction="#onPendingTestResults" prefHeight="54.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/M2cQSr5/pending.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Pending Test&#10;Results">
+                                            <padding>
+                                                <Insets right="3.0" />
+                                            </padding>
+                                        </BottomNavigationButton>
+                                        <HBox prefHeight="22.0" prefWidth="200.0" />
+                                        <BottomNavigationButton fx:id="reportsB" onAction="#onReports" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/C6f5YG9/reports.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Reports">
+                                            <padding>
+                                                <Insets right="46.0" />
+                                            </padding>
+                                        </BottomNavigationButton>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </VBox>
+                                <StackPane alignment="TOP_LEFT" prefHeight="231.0" prefWidth="311.0">
+                                    <children>
+                                        <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="169.868" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2C5C89; -fx-stroke: transparent; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="262.0" />
+                                        <BottomNavigationButton fx:id="historyB" alignment="TOP_LEFT" onAction="#onHistory" prefHeight="57.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;https://i.ibb.co/cYBss78/history.png&quot;); -fx-graphic-text-gap: 5;" text="History available&#10;" translateX="18.71" translateY="15.48">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </BottomNavigationButton>
+                                        <Label style="-fx-font-family: Poppins; -fx-text-fill: #FFF; -fx-font-size: 14px; -fx-font-style: normal; -fx-font-weight: 400;" text="Check out your weekly &#10;transaction reports" translateX="47.03" translateY="100.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="38.13" left="24.0" right="24.0" />
+                                    </padding>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1078.0" prefWidth="1614.0" style="-fx-background-color: white;">
+                    <children>
+                        <Line endX="1559.6666259765625" layoutX="60.0" layoutY="127.0" startX="-135.0" style="-fx-stroke: #E4E3E3;" />
+                        <Label fx:id="patientNameL" layoutX="46.0" layoutY="164.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 28; -fx-font-weight: 700; -fx-font-style: bold;" text="Sample No. I Information" textFill="#122a40" translateX="30.0" />
+                        <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="76.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #D2F9DB;" width="330.0" />
+                        <StackPane layoutX="93.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
+                            <children>
+                                <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
+                                <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="https://i.ibb.co/MpfKRxV/patients-white.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <Label layoutX="98.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Total Tests" />
+                        <Label fx:id="totalTestsL" layoutX="331.0" layoutY="225.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="101" />
+                        <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="442.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #D2EBF9;" width="330.0" />
+                        <StackPane layoutX="459.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
+                            <children>
+                                <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
+                                <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="https://i.ibb.co/G2LLgSV/fingerprint.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <Label layoutX="464.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Total Pending Tests" />
+                        <Label fx:id="pendingTestsL" layoutX="734.0" layoutY="225.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="1" />
+                        <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="804.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #F9EED2;" width="330.0" />
+                        <StackPane layoutX="821.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
+                            <children>
+                                <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
+                                <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="https://i.ibb.co/zXdxT6J/Gender-Female.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <Label layoutX="826.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Total Done Tests" />
+                        <Label fx:id="doneTestsL" layoutX="1072.0" layoutY="225.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="3" />
+                        <ImageView fitHeight="14.0" fitWidth="15.0" layoutX="93.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="1437.0" layoutY="1047.0" text="Prototype v0.3 @ 12/05/2024" textFill="#9e9e9e" />
+                  <StackPane layoutY="810.0" prefHeight="51.98" prefWidth="51.98" />
+                   <TextField fx:id="idTF" editable="false" layoutX="76.0" layoutY="433.0" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <Label layoutX="78.0" layoutY="407.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400; -fx-font-style: normal;" text="ID" />
+                  <TextField fx:id="patientIdTF" editable="false" layoutX="342.0" layoutY="433.0" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <Label layoutX="344.0" layoutY="407.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400; -fx-font-style: normal;" text="Patient ID" />
+                  <TextField fx:id="sampleTypeTF" editable="false" layoutX="76.0" layoutY="507.0" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <Label layoutX="78.0" layoutY="481.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400; -fx-font-style: normal;" text="Sample Type" />
+                  <TextField fx:id="collectionDateTF" editable="false" layoutX="342.0" layoutY="507.0" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <Label layoutX="344.0" layoutY="481.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400; -fx-font-style: normal;" text="Collection Date" />
+                  <TextField fx:id="collectedByTF" editable="false" layoutX="76.0" layoutY="581.0" prefWidth="249.0" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
+                  <Label layoutX="78.0" layoutY="555.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400; -fx-font-style: normal;" text="Collected By" />
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="30.0" layoutX="76.0" layoutY="681.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #0D1E2F; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5); -fx-stroke-width: 0px;" width="136.0" />
+                  <BottomNavigationButton fx:id="testB" alignment="TOP_LEFT" layoutX="76.0" layoutY="679.0" onAction="#onCall" prefHeight="14.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;https://i.ibb.co/3kNvHb4/test-white.png&quot;); -fx-graphic-text-gap: 25;" text="Test">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="30.0" layoutX="233.0" layoutY="681.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #0D1E2F; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5); -fx-stroke-width: 0;" width="136.0" />
+                  <BottomNavigationButton fx:id="bookmarkB" alignment="TOP_LEFT" layoutX="233.0" layoutY="679.0" onAction="#onBookmark" prefHeight="14.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;https://i.ibb.co/fF9hdzQ/bookmark-white-outlined.png&quot;); -fx-graphic-text-gap: 8;" text="Bookmark">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="30.0" layoutX="390.0" layoutY="681.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #0D1E2F; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5); -fx-stroke-width: 0;" width="136.0" />
+                  <BottomNavigationButton fx:id="editInfoB" alignment="TOP_LEFT" layoutX="390.0" layoutY="679.0" onAction="#onEditInfo" prefHeight="14.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;https://i.ibb.co/8dWsLDL/mode-edit.png&quot;); -fx-graphic-text-gap: 8;" text="Edit Info">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <Label layoutX="76.0" layoutY="768.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 28; -fx-font-weight: 700; -fx-font-style: bold;" text="Recent Activities" textFill="#122a40" />
+                  <VBox fx:id="recentActivity" layoutX="76.0" layoutY="830.0" prefHeight="235.0" prefWidth="540.0" spacing="20.0" />
+                  <HBox alignment="CENTER" layoutX="1358.0" layoutY="41.0" prefHeight="54.0" prefWidth="223.0" spacing="16.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent; -fx-stroke-width: 0;" width="14.0" />
+                        <StackPane prefHeight="25.0" prefWidth="54.0">
+                           <children>
+                              <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
+                              <BottomNavigationButton style="-fx-graphic: url(&quot;https://i.ibb.co/1K2S8HH/notifications.png&quot;); -fx-background-color: transparent;" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="25.0" prefWidth="54.0">
+                           <children>
+                              <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
+                              <BottomNavigationButton fx:id="bookmarksB" onAction="#onBookmarks" style="-fx-graphic: url(&quot;https://i.ibb.co/BC2tBtH/bookmarks-blue.png&quot;); -fx-background-color: transparent;" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="25.0" prefWidth="54.0">
+                           <children>
+                              <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
+                              <BottomNavigationButton onAction="#onSettings" style="-fx-graphic: url(&quot;https://i.ibb.co/rwpr1L9/settings.png&quot;); -fx-background-color: transparent;" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane fx:id="settingsDropDown" layoutX="1408.0" layoutY="109.0" prefHeight="217.0" prefWidth="173.0" visible="false">
+                     <children>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="217.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #F6F6F6; -fx-stroke-width: 0; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="173.0" />
+                        <Label fx:id="nameL" layoutX="8.0" layoutY="3.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-size: 18px; -fx-font-weight: 700;" text="Hello, Name!" />
+                        <Label fx:id="termsL" layoutX="8.0" layoutY="52.0" onMouseClicked="#onTerms" style="-fx-font-family: Poppins; -fx-font-size: 14px; -fx-text-fill: #0D1E2F; -fx-font-style: normal; -fx-font-weight: 400; -fx-underline: true;" text="Terms and Conditions" />
+                        <Label fx:id="privacySettingsL" layoutX="8.0" layoutY="72.0" onMouseClicked="#onPrivacy" style="-fx-font-family: Poppins; -fx-font-size: 14px; -fx-text-fill: #0D1E2F; -fx-font-style: normal; -fx-font-weight: 400; -fx-underline: true;" text="Privacy Settings" />
+                        <Label fx:id="myAccountL" layoutX="8.0" layoutY="92.0" onMouseClicked="#onMyAccount" style="-fx-font-family: Poppins; -fx-font-size: 14px; -fx-text-fill: #0D1E2F; -fx-font-style: normal; -fx-font-weight: 400; -fx-underline: true;" text="My Account" />
+                        <Label fx:id="logOutL" layoutX="8.0" layoutY="112.0" onMouseClicked="#onLogOut" style="-fx-font-family: Poppins; -fx-font-size: 14px; -fx-text-fill: #0D1E2F; -fx-font-style: normal; -fx-font-weight: 400; -fx-underline: true;" text="Log Out" />
+                        <BottomNavigationButton fx:id="exitAndClose" layoutY="192.0" onAction="#onExitAndClose" prefHeight="23.0" prefWidth="173.0" style="-fx-graphic: url(&quot;https://i.ibb.co/wy5my8y/exit-to-app.png&quot;); -fx-font-size: 16px; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-weight: 700; -fx-text-fill: #0D1E2F; -fx-background-color: transparent; -fx-padding: 0 0 0 0;" text="Exit and Close" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="bookmarksDropDown" layoutX="1115.0" layoutY="119.0" prefHeight="493.0" prefWidth="409.0" visible="false">
+                     <children>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="493.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #F6F6F6; -fx-stroke-width: 0; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="403.0" />
+                        <Label fx:id="nameL1" layoutX="15.0" layoutY="3.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-size: 18px; -fx-font-weight: 700;" text="Latest Bookmarks" />
+                        <VBox fx:id="bookmarksVBox" layoutX="15.0" layoutY="50.0" prefHeight="368.0" prefWidth="393.0" spacing="15.0" />
+                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="48.0" layoutX="-60.0" layoutY="-782.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #D2F9DB;" width="48.0" />
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="26.0" layoutX="118.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #0D1E2F; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="190.0" />
+                        <BottomNavigationButton fx:id="showAllBookmarks" layoutX="118.0" layoutY="456.0" onAction="#onShowAllBookmarks" prefHeight="27.0" prefWidth="190.0" style="-fx-font-size: 14px; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-weight: 700; -fx-text-fill: white; -fx-background-color: transparent; -fx-padding: 0 0 0 0;" text="Show All" />
+                     </children>
+                  </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </items>
+</SplitPane>
