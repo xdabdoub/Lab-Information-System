@@ -30,7 +30,7 @@
                            <children>
                               <ImageView fitHeight="76.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://i.ibb.co/RH7hjHW/birzeit.png" />
+                                    <Image url="@../../../../../images/birzeit_logo.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -42,7 +42,7 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" />
                         <VBox prefHeight="516.0" prefWidth="311.0">
                            <children>
-                              <BottomNavigationButton fx:id="dashboardB" onAction="#onDashboard" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/bgwTxS3/trending-up.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Dashboard">
+                              <BottomNavigationButton fx:id="dashboardB" onAction="#onDashboard" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/dashboard_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Dashboard">
                                  <padding>
                                     <Insets right="20.0" />
                                  </padding>
@@ -51,7 +51,7 @@
                               <HBox prefHeight="27.0" prefWidth="288.0">
                                  <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent; -fx-stroke: transparent;" width="14.0" />
-                                    <BottomNavigationButton fx:id="patientB" onAction="#onPatients" prefHeight="32.0" prefWidth="360.0" style="-fx-graphic: url(&quot;https://i.ibb.co/hf1xryn/patients.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Patients">
+                                    <BottomNavigationButton fx:id="patientB" onAction="#onPatients" prefHeight="32.0" prefWidth="360.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/patients_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Patients">
                                        <padding>
                                           <Insets right="63.0" />
                                        </padding>
@@ -62,7 +62,7 @@
                               <HBox prefHeight="27.0" prefWidth="200.0">
                                  <children>
                                     <Rectangle arcHeight="12.0" arcWidth="12.0" fill="DODGERBLUE" height="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2C5C89; -fx-stroke: transparent;" width="14.0" />
-                                    <BottomNavigationButton fx:id="samplesB" onAction="#onSamples" prefHeight="32.0" prefWidth="275.0" style="-fx-graphic: url(&quot;https://i.ibb.co/FqwsG5f/donut-small.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Samples">
+                                    <BottomNavigationButton fx:id="samplesB" onAction="#onSamples" prefHeight="32.0" prefWidth="275.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/samples_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Samples">
                                        <padding>
                                           <Insets right="40.0" />
                                        </padding>
@@ -70,13 +70,13 @@
                                  </children>
                               </HBox>
                               <HBox prefHeight="27.0" prefWidth="200.0" />
-                              <BottomNavigationButton fx:id="testRB" onAction="#onPendingTestResults" prefHeight="54.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/M2cQSr5/pending.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Pending Test&#10;Results">
+                              <BottomNavigationButton fx:id="testRB" onAction="#onPendingTestResults" prefHeight="54.0" prefWidth="311.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/tests_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Pending Test&#10;Results">
                                  <padding>
                                     <Insets right="3.0" />
                                  </padding>
                               </BottomNavigationButton>
                               <HBox prefHeight="22.0" prefWidth="200.0" />
-                              <BottomNavigationButton fx:id="reportsB" onAction="#onReports" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;https://i.ibb.co/C6f5YG9/reports.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Reports">
+                              <BottomNavigationButton fx:id="reportsB" onAction="#onReports" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/reports_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Reports">
                                  <padding>
                                     <Insets right="46.0" />
                                  </padding>
@@ -89,7 +89,7 @@
                         <StackPane alignment="TOP_LEFT" prefHeight="231.0" prefWidth="311.0">
                            <children>
                               <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="169.868" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2C5C89; -fx-stroke: transparent; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" width="262.0" />
-                              <BottomNavigationButton fx:id="historyB" alignment="TOP_LEFT" onAction="#onHistory" prefHeight="57.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;https://i.ibb.co/cYBss78/history.png&quot;); -fx-graphic-text-gap: 5;" text="History available&#10;" translateX="18.71" translateY="15.48">
+                              <BottomNavigationButton fx:id="historyB" alignment="TOP_LEFT" onAction="#onHistory" prefHeight="57.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: #FFF; -fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/history_white.png&quot;); -fx-graphic-text-gap: 5;" text="History available&#10;" translateX="18.71" translateY="15.48">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -117,7 +117,7 @@
                         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
                         <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="https://i.ibb.co/MpfKRxV/patients-white.png" />
+                              <Image url="@../../../../../images/totalsamples.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -130,7 +130,7 @@
                         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
                         <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="https://i.ibb.co/G2LLgSV/fingerprint.png" />
+                              <Image url="@../../../../../images/id_white.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -143,14 +143,14 @@
                         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
                         <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="https://i.ibb.co/zXdxT6J/Gender-Female.png" />
+                              <Image url="@../../../../../images/discrete_gender.png" />
                            </image>
                         </ImageView>
                      </children>
                   </StackPane>
                   <Label layoutX="826.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Discrete Gender" />
                   <Label fx:id="discreteGL" alignment="CENTER_RIGHT" layoutX="898.0" layoutY="225.0" prefHeight="56.0" prefWidth="211.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="M" />
-                  <TableView fx:id="tableView" layoutX="85.0" layoutY="409.0" prefHeight="629.0" prefWidth="1309.0">
+                  <TableView fx:id="tableView" layoutX="85.0" layoutY="409.0" prefHeight="629.0" prefWidth="1309.0" stylesheets="@../../../../../css/table_view.css">
                     <columns>
                       <TableColumn fx:id="idCol" prefWidth="172.0" text="ID" />
                         <TableColumn fx:id="patientIdCol" prefWidth="172.0" text="Patient ID" />
@@ -168,10 +168,10 @@
                   </ImageView>
                   <HBox layoutX="1107.0" layoutY="369.0" prefHeight="34.0" prefWidth="276.0" spacing="5.0">
                      <children>
-                        <BottomNavigationButton fx:id="insertB" onAction="#onInsertSample" prefHeight="32.0" prefWidth="140.0" style="-fx-graphic: url(&quot;https://i.ibb.co/GMkd2GQ/person-add.png&quot;); -fx-background-color: #2C5C89; -fx-text-fill: #FFF; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 300; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" text="New Sample" />
-                        <BottomNavigationButton fx:id="updateB" onAction="#onUpdateSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;https://i.ibb.co/4dGz2nZ/mode-edit.png&quot;); -fx-background-color: orange; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
-                        <BottomNavigationButton fx:id="deleteB" onAction="#onDeleteSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;https://i.ibb.co/99L6kTp/delete-forever.png&quot;); -fx-background-color: red; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
-                        <BottomNavigationButton fx:id="viewB" onAction="#onViewSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;https://i.ibb.co/VmCBdKf/visibility.png&quot;); -fx-background-color: #2C5C89; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
+                        <BottomNavigationButton fx:id="insertB" onAction="#onInsertSample" prefHeight="32.0" prefWidth="140.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/sample_white_smal.png&quot;); -fx-background-color: #2C5C89; -fx-text-fill: #FFF; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 300; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" text="New Sample" />
+                        <BottomNavigationButton fx:id="updateB" onAction="#onUpdateSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/edit_white.png&quot;); -fx-background-color: orange; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
+                        <BottomNavigationButton fx:id="deleteB" onAction="#onDeleteSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/delete_white.png&quot;); -fx-background-color: red; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
+                        <BottomNavigationButton fx:id="viewB" onAction="#onViewSample" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/view_white.png&quot;); -fx-background-color: #2C5C89; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
                      </children>
                   </HBox>
                   <Label layoutX="1437.0" layoutY="1047.0" text="Prototype v0.3 @ 12/05/2024" textFill="#9e9e9e" />
@@ -180,19 +180,19 @@
                         <StackPane prefHeight="25.0" prefWidth="54.0">
                            <children>
                               <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
-                              <BottomNavigationButton style="-fx-graphic: url(&quot;https://i.ibb.co/1K2S8HH/notifications.png&quot;); -fx-background-color: transparent;" />
+                              <BottomNavigationButton style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/notifications.png&quot;); -fx-background-color: transparent;" />
                            </children>
                         </StackPane>
                         <StackPane prefHeight="25.0" prefWidth="54.0">
                            <children>
                               <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
-                              <BottomNavigationButton fx:id="bookmarksB" onAction="#onBookmarks" style="-fx-graphic: url(&quot;https://i.ibb.co/BC2tBtH/bookmarks-blue.png&quot;); -fx-background-color: transparent;" />
+                              <BottomNavigationButton fx:id="bookmarksB" onAction="#onBookmarks" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/bookmarks.png&quot;); -fx-background-color: transparent;" />
                            </children>
                         </StackPane>
                         <StackPane prefHeight="25.0" prefWidth="54.0">
                            <children>
                               <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0; -fx-fill: #F6F6F6;" />
-                              <BottomNavigationButton onAction="#onSettings" style="-fx-graphic: url(&quot;https://i.ibb.co/rwpr1L9/settings.png&quot;); -fx-background-color: transparent;" />
+                              <BottomNavigationButton onAction="#onSettings" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/settings.png&quot;); -fx-background-color: transparent;" />
                            </children>
                         </StackPane>
                      </children>

@@ -40,6 +40,7 @@ CREATE TABLE Invoices
     invoiceDate   DATE,
     amount        DECIMAL(10, 2) NOT NULL,
     patientId     INT         NOT NULL,
+    description TEXT,
     invoiceStatus VARCHAR(32) NOT NULL,
     lastModified DATE,
     FOREIGN KEY (patientId) REFERENCES Patients (patientId) ON DELETE CASCADE ON UPDATE CASCADE

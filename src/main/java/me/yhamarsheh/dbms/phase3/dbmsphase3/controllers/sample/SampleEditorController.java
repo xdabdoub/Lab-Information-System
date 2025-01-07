@@ -195,8 +195,15 @@ public class SampleEditorController {
         long collectedBy = Long.parseLong(collectedByTF.getText());
 
         if (sample == null) { // INSERT
-            Sample newSample = new Sample(id, patientId, collectedBy, sampleType.toString(), collectionDate, LocalDate.now());
-            Driver.PRIMARY_MANAGER.getSamplesManager().addSample(newSample);
+            if(GeneralUtils.getSampleById(id)!=null){
+                FXUtils.alert("The ID already Exists. You cannot add it.", Alert.AlertType.ERROR).show();
+
+            }
+            else{
+                Sample newSample = new Sample(id, patientId, collectedBy, sampleType.toString(), collectionDate, LocalDate.now());
+                Driver.PRIMARY_MANAGER.getSamplesManager().addSample(newSample);
+            }
+
         } else {
             // UPDATE
             long oldId = sample.getSampleId();

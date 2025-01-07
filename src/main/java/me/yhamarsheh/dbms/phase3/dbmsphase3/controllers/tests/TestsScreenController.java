@@ -233,7 +233,7 @@ public class TestsScreenController {
 
     @FXML
     void onReports(ActionEvent event) {
-
+        UIHandler.open("reports.fxml");
     }
 
     @FXML

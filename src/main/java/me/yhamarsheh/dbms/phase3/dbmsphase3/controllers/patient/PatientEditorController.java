@@ -15,6 +15,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Bookmark;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Patient;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.User;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
 
 import java.awt.*;
 import java.io.File;
@@ -182,8 +183,13 @@ public class PatientEditorController {
         String address = addressTF.getText();
 
         if (patient == null) { // INSERT
-            Patient newPatient = new Patient(id, name, gender, dateOfBirth, phone, address);
-            Driver.PRIMARY_MANAGER.getPatientsManager().addPatient(newPatient);
+            if (GeneralUtils.getPatientById(id) != null) {
+                FXUtils.alert("The Id Exisit You cant Add It", Alert.AlertType.ERROR).show();
+            } else {
+
+                Patient newPatient = new Patient(id, name, gender, dateOfBirth, phone, address);
+                Driver.PRIMARY_MANAGER.getPatientsManager().addPatient(newPatient);
+            }
         } else {
             // UPDATE
             long oldId = patient.getId();

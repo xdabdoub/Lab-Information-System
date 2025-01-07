@@ -17,9 +17,9 @@ public class Driver {
 
     public static void main(String[] args) throws InterruptedException {
         uiHandler = new UIHandler();
-        sqlConnection = new SQLConnection("localhost", 3306, "root", "");
 
         try {
+            sqlConnection = new SQLConnection("localhost", 3306, "root", "");
             sqlConnection.connect();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Could not connect to database. More Info: " + e.getMessage());

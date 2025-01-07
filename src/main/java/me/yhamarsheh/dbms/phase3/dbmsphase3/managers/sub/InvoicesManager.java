@@ -6,7 +6,6 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Invoice;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.storage.Query;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

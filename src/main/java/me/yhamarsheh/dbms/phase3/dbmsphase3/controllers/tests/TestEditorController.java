@@ -160,7 +160,8 @@ public class TestEditorController {
 
     @FXML
     void onReports(ActionEvent event) {
-
+        test = null;
+        UIHandler.open("reports.fxml");
     }
 
     @FXML
@@ -171,8 +172,33 @@ public class TestEditorController {
 
     @FXML
     void onSubmission(ActionEvent event) {
+        if (!allFilledAndCorrect(idTF , sampleIdTF)) {
+            FXUtils.alert("Some values seem to be invalid!", Alert.AlertType.WARNING).show();
+            return;
+        }
 
-    }
+
+        Optional<ButtonType> result = FXUtils.alert("Are you sure you'd like to proceed?", Alert.AlertType.CONFIRMATION).showAndWait();
+        if (!result.isPresent()) return;
+        if (result.get() != ButtonType.OK) return;
+
+        int id = Integer.parseInt(idTF.getText());
+        int sampleId=Integer.parseInt(sampleIdTF.getText());
+        LocalDate testDate = testDateTF.getValue();
+        TestStatus testStatus = testStatusCB.getSelectionModel().getSelectedItem();
+        LocalDate lastModified = LocalDate.now(); 
+
+        if (test == null) { // INSERT
+            if(GeneralUtils.getTestById(id)!=null){
+                FXUtils.alert("The ID already Exists. You cannot add it.", Alert.AlertType.ERROR).show();
+
+            }
+            else{
+                Test newTest = new Test(id, sampleId, testStatus, testDate,lastModified);
+                Driver.PRIMARY_MANAGER.getTestsManager().addTest(newTest);
+            }
+
+    }}
 
     @FXML
     void onTerms(MouseEvent event) {
@@ -235,4 +261,19 @@ public class TestEditorController {
 
     }
 
+    private boolean allFilledAndCorrect(TextField idTF, TextField sampleIdTF) {
+        if (idTF.getText().isEmpty() || sampleIdTF.getText().isEmpty())
+            return false;
+
+        try {
+            Integer.parseInt(idTF.getText());
+            Integer.parseInt(sampleIdTF.getText());
+        } catch (NumberFormatException ex) { return false; }
+
+        return true;
+    }
+
 }
+
+
+

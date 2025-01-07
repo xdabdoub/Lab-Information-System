@@ -38,8 +38,7 @@ public class SQLConnection {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(url, user, password);
             } catch (ClassNotFoundException | SQLException ex) {
-                ex.printStackTrace();
-                System.out.println("An SQL error has occurred. More Info: " + ex.getMessage());
+                throw new SQLException(ex);
             }
         }
     }

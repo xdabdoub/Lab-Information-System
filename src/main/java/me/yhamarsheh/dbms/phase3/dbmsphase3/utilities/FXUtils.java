@@ -47,7 +47,7 @@ public class FXUtils {
                     Patient bPatient = (Patient) bookmark.getEntity();
                     entityId.setText(bPatient.getName());
                     date.setText(bookmark.getBookmarkDate().toString());
-                    image.setImage(new Image("https://i.ibb.co/VBSjXMx/escalator-warning-blue.png"));
+                    image.setImage(new Image("C:\\Users\\yhama\\Documents\\DBMS-Phase3\\src\\main\\resources\\images\\patients_blue.png"));
                     background.setStyle("-fx-stroke-width: 0; -fx-fill: #D2EBF9");
                     button.setOnAction(e -> {
                         PatientViewerController.patient = bPatient;
@@ -59,7 +59,7 @@ public class FXUtils {
                     entityId.setText("#" + bSample.getSampleId());
                     date.setText(bookmark.getBookmarkDate().toString());
                     background.setStyle("-fx-stroke-width: 0; -fx-fill: #D2F9DB");
-                    image.setImage(new Image("https://i.ibb.co/6r6mC0N/donut-small-blue.png"));
+                    image.setImage(new Image("C:\\Users\\yhama\\Documents\\DBMS-Phase3\\src\\main\\resources\\images\\samples_blue.png"));
                     button.setOnAction(e -> {
                         SampleViewerController.sample = bSample;
                         UIHandler.open("sample_viewer.fxml");
@@ -70,7 +70,7 @@ public class FXUtils {
                     entityId.setText("#" + bTest.getTestId());
                     date.setText(bookmark.getBookmarkDate().toString());
                     background.setStyle("-fx-stroke-width: 0; -fx-fill: #F9D5D2");
-                    image.setImage(new Image("https://i.ibb.co/WkVPFht/test-blue.png"));
+                    image.setImage(new Image("C:\\Users\\yhama\\Documents\\DBMS-Phase3\\src\\main\\resources\\images\\tests_blue.png"));
                     button.setOnAction(e -> {
                         TestViewerController.test = bTest;
                         UIHandler.open("test_viewer.fxml");
@@ -91,7 +91,7 @@ public class FXUtils {
                     entityId.setText("#" + bReport.getReportId());
                     date.setText(bookmark.getBookmarkDate().toString());
                     background.setStyle("-fx-stroke-width: 0; -fx-fill: #F9EED2");
-                    image.setImage(new Image("https://i.ibb.co/42Sgshw/report-blue.png"));
+                    image.setImage(new Image("C:\\Users\\yhama\\Documents\\DBMS-Phase3\\src\\main\\resources\\images\\reports_blue.png"));
                 }
             }
 

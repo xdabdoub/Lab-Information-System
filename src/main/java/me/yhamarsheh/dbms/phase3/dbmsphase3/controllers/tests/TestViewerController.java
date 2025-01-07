@@ -213,7 +213,7 @@ public class TestViewerController {
 
     @FXML
     void onReports(ActionEvent event) {
-
+        UIHandler.open("reports.fxml");
     }
 
     @FXML
