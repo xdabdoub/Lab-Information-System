@@ -13,6 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports.ReportEditorController;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleViewerController;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.EntityType;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.TestStatus;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
@@ -122,6 +124,8 @@ public class TestViewerController {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
+        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         BookmarksManager bookmarksManager = user.getBookmarksManager();
 
         if (bookmarksManager.getBookmarks().isEmpty()) {
@@ -178,12 +182,13 @@ public class TestViewerController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
     void onEditInfo(ActionEvent event) {
-
+        TestEditorController.test = test;
+        UIHandler.open("insert_test.fxml");
     }
 
     @FXML
@@ -193,22 +198,23 @@ public class TestViewerController {
 
     @FXML
     void onOriginSample(ActionEvent event) {
-
+        SampleViewerController.sample = test.getSample();
+        UIHandler.open("sample_viewer.fxml");
     }
 
     @FXML
     void onPatients(ActionEvent event) {
-
+        UIHandler.open("patients.fxml");
     }
 
     @FXML
     void onPendingTestResults(ActionEvent event) {
-
+        UIHandler.open("tests.fxml");
     }
 
     @FXML
     void onReport(ActionEvent event) {
-
+        UIHandler.open("insert_report.fxml");
     }
 
     @FXML
@@ -218,7 +224,7 @@ public class TestViewerController {
 
     @FXML
     void onSamples(ActionEvent event) {
-
+        UIHandler.open("samples.fxml");
     }
 
     @FXML
@@ -253,7 +259,7 @@ public class TestViewerController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -280,6 +286,12 @@ public class TestViewerController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        test = null;
+        UIHandler.open("invoices.fxml");
     }
 
 }

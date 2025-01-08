@@ -1,5 +1,7 @@
 package me.yhamarsheh.dbms.phase3.dbmsphase3.objects;
 
+import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
+
 import java.time.LocalDate;
 
 
@@ -14,7 +16,7 @@ public class Report {
 
     public Report(int reportId, int testId, LocalDate date, String result, LocalDate lastModified) {
         this.reportId = reportId;
-        this.test = null;
+        this.test = GeneralUtils.getTestById(testId);
         this.date = date;
         this.result = result;
         this.lastModified = lastModified;

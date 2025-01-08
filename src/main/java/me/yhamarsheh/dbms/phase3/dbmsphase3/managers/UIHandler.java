@@ -95,4 +95,8 @@ public class UIHandler extends Application {
     public static void close() {
         stage.close();
     }
+
+    public static Stage getStage() {
+        return stage;
+    }
 }

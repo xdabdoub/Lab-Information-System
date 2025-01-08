@@ -103,6 +103,8 @@ public class TestEditorController {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
+        nameL1.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         if (user.getBookmarksManager().getBookmarks().isEmpty()) {
             Label label = new Label("You don't have any bookmarks :(!");
             label.setStyle("-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 700; -fx-font-style: normal");
@@ -138,7 +140,7 @@ public class TestEditorController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -198,7 +200,28 @@ public class TestEditorController {
                 Driver.PRIMARY_MANAGER.getTestsManager().addTest(newTest);
             }
 
-    }}
+        } else {
+            // UPDATE
+            long oldId = test.getTestId();
+
+            test.setTestId(id);
+            test.setSample(GeneralUtils.getSampleById(sampleId));
+            test.setTestStatus(testStatusCB.getSelectionModel().getSelectedItem());
+            test.setTestDate(testDate);
+            test.setLastModified(LocalDate.now());
+            Driver.PRIMARY_MANAGER.getTestsManager().updateTest(test, oldId);
+        }
+
+        test = null;
+
+        FXUtils.alert("Action was successful!", Alert.AlertType.INFORMATION).show();
+        idTF.clear();
+        sampleIdTF.clear();
+        testDateTF.setValue(LocalDate.now());
+        testStatusCB.getSelectionModel().select(TestStatus.PENDING);
+
+        UIHandler.open("tests.fxml");
+    }
 
     @FXML
     void onTerms(MouseEvent event) {
@@ -232,7 +255,7 @@ public class TestEditorController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -259,6 +282,12 @@ public class TestEditorController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        test = null;
+        UIHandler.open("invoices.fxml");
     }
 
     private boolean allFilledAndCorrect(TextField idTF, TextField sampleIdTF) {

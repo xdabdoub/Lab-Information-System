@@ -38,7 +38,7 @@ public class ReportsManager {
         reports.addAll(reportsList);
     }
 
-    public void addReports(Report report) {
+    public void addReport(Report report) {
         reports.add(report);
         Query query = new Query(Driver.getSQLConnection().getConnection());
         query.build("INSERT INTO Reports (reportId, testId, reportDate, result) VALUES (?,?,?,?)",
@@ -46,7 +46,7 @@ public class ReportsManager {
 
     }
 
-    public void deleteReports(Report report) {
+    public void deleteReport(Report report) {
         reports.remove(report);
         Query query = new Query(Driver.getSQLConnection().getConnection());
         query.build("DELETE FROM Reports WHERE reportId=?",
@@ -88,8 +88,8 @@ public class ReportsManager {
 
     public int getReportCountWithinDateRange(Date startDate, Date endDate) {
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        Integer count = query.get("SELECT COUNT(*) AS reportCount FROM Reports WHERE reportDate BETWEEN ? AND ?",1, startDate, endDate);
-        return count != null ? count : 0;
+        Long count = query.get("SELECT COUNT(*) AS reportCount FROM Reports WHERE reportDate BETWEEN ? AND ?",1, startDate, endDate);
+        return count != null ? count.intValue() : 0;
     }
 
         public Report getLatestReport() {

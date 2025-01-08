@@ -169,7 +169,7 @@ public class PatientsScreenController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -291,7 +291,7 @@ public class PatientsScreenController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -318,6 +318,11 @@ public class PatientsScreenController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        UIHandler.open("invoices.fxml");
     }
 
     private void getPatientsByPartOfId(ObservableList<Patient> filteredPatients, String partOfId) {

@@ -135,6 +135,8 @@ public class SamplesScreenController {
 
         tableView.getItems().addAll(Driver.PRIMARY_MANAGER.getSamplesManager().getSamples());
 
+        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         totalSamples.setText(Driver.PRIMARY_MANAGER.getSamplesManager().getTotalSamples() + "");
         discSampleType.setText(Driver.PRIMARY_MANAGER.getSamplesManager().getDiscreteSampleType());
         discreteGL.setText(Driver.PRIMARY_MANAGER.getSamplesManager().getDiscretePatientsGender());
@@ -157,7 +159,7 @@ public class SamplesScreenController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -266,7 +268,7 @@ public class SamplesScreenController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -305,6 +307,11 @@ public class SamplesScreenController {
 
         SampleViewerController.sample = sample;
         UIHandler.open("sample_viewer.fxml");
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        UIHandler.open("invoices.fxml");
     }
 
     private void getSampleByPartOfIdOrSampleType(ObservableList<Sample> filteredPatients, String input) {

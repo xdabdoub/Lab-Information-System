@@ -80,6 +80,9 @@ CREATE TABLE Reports
     FOREIGN KEY (testId) REFERENCES Tests (testId) ON DELETE CASCADE
 );
 
+INSERT INTO Tests (testId, sampleId, testStatus, testDate, lastModified) VALUES (1, 1, "PENDING", NOW(), NOW());
+INSERT INTO Reports (reportId, testId, reportDate, result, lastModified) VALUES (1, 1, NOW(), "No results", NOW());
+
 CREATE TABLE Bookmarks
 (
     bookmarkId INT AUTO_INCREMENT PRIMARY KEY,

@@ -6,6 +6,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Invoice;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.storage.Query;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class InvoicesManager {
                         rs.getDouble("amount"),
                         rs.getInt("patientId"),
                         InvoiceStatus.valueOf(rs.getString("invoiceStatus")),
+                        rs.getString("description"),
                         rs.getDate("lastModified").toLocalDate()
                 );
             } catch (SQLException ex) {
@@ -39,11 +41,21 @@ public class InvoicesManager {
         invoices.addAll(invoiceList);
     }
 
+    /*
+        invoiceId     INT PRIMARY KEY,
+    invoiceDate   DATE,
+    amount        DECIMAL(10, 2) NOT NULL,
+    patientId     INT         NOT NULL,
+    description TEXT,
+    invoiceStatus VARCHAR(32) NOT NULL,
+    lastModified DATE,
+     */
     public void addInvoice(Invoice invoice) {
         invoices.add(invoice);
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        query.build("INSERT INTO Invoices (invoiceId, invoiceDate, amount, patient,invoiceStatus) VALUES (?,?,?,?,?)",
-                invoice.getInvoiceId(),invoice.getInvoiceDate(),invoice.getAmount(),invoice.getPatient(),invoice.getInvoiceStatus());
+        query.build("INSERT INTO Invoices (invoiceId, invoiceDate, amount, patientId, invoiceStatus, description, lastModified) VALUES (?,?,?,?,?,?,?)",
+                invoice.getInvoiceId(), Date.valueOf(invoice.getInvoiceDate()),invoice.getAmount(),invoice.getPatient().getId(),invoice.getInvoiceStatus().toString(),
+                invoice.getDescription(),Date.valueOf(invoice.getLastModified()));
     }
 
     public void deleteInvoice(Invoice invoice) {
@@ -55,8 +67,10 @@ public class InvoicesManager {
 
     public void updateInvoice(Invoice invoice, long oldId) {
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        query.build("UPDATE Invoices SET invoiceStatus=? WHERE invoiceId=?",
-                invoice.getInvoiceId(),invoice.getInvoiceDate(),invoice.getAmount(),invoice.getPatient(),invoice.getInvoiceStatus(),
+        query.build("UPDATE Invoices SET invoiceId=?, invoiceDate=?, amount=?, patientId=?, invoiceStatus=?," +
+                        "description=?, lastModified=? WHERE invoiceId=?",
+                invoice.getInvoiceId(),Date.valueOf(invoice.getInvoiceDate()),invoice.getAmount(),invoice.getPatient().getId(),invoice.getInvoiceStatus().toString(),
+                invoice.getDescription(), Date.valueOf(invoice.getLastModified()),
                 oldId);
     }
 
@@ -102,5 +116,18 @@ public class InvoicesManager {
         Long count = query.get("SELECT COUNT(*) FROM Invoices WHERE invoiceStatus = ?", 1,status.toString());
         return count != null ? count.intValue() : 0;
     }
+
+    public int getDueAmount() {
+        Query query = new Query(Driver.getSQLConnection().getConnection());
+        Long count = query.get("SELECT SUM(amount) FROM Invoices WHERE invoiceStatus = 'DUE'", 1);
+        return count != null ? count.intValue() : 0;
+    }
+
+    public int getTotalAmount() {
+        Query query = new Query(Driver.getSQLConnection().getConnection());
+        Long count = query.get("SELECT SUM(amount) FROM Invoices WHERE invoiceStatus = 'PAID'", 1);
+        return count != null ? count.intValue() : 0;
+    }
+
 
 }

@@ -2,6 +2,7 @@
 
 <?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports.ReportsScreenController">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.dashboard.UserAccountController">
    <items>
       <SplitPane dividerPositions="0.16058394160583941" prefHeight="160.0" prefWidth="200.0">
         <items>
@@ -71,22 +72,21 @@
                                  </padding>
                               </BottomNavigationButton>
                               <HBox prefHeight="22.0" prefWidth="200.0" />
-                              <HBox prefHeight="27.0" prefWidth="311.0">
+                              <BottomNavigationButton fx:id="reportsB" onAction="#onReports" prefHeight="27.0" prefWidth="311.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/reports_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Reports">
+                                 <padding>
+                                    <Insets right="46.0" />
+                                 </padding>
+                              </BottomNavigationButton>
+                              <HBox prefHeight="27.0" prefWidth="200.0" />
+                              <HBox prefHeight="32.0" prefWidth="200.0">
                                  <children>
-                                    <Rectangle arcHeight="12.0" arcWidth="12.0" fill="DODGERBLUE" height="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2C5C89; -fx-stroke: transparent;" width="14.0" />
-                                    <BottomNavigationButton fx:id="reportsB" onAction="#onReports" prefHeight="32.0" prefWidth="278.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/reports_blue.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Reports">
+                                    <BottomNavigationButton onAction="#onInvoices" prefHeight="32.0" prefWidth="320.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/invoices.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Invoices">
                                        <padding>
                                           <Insets right="46.0" />
                                        </padding>
                                     </BottomNavigationButton>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="27.0" prefWidth="200.0" />
-                              <BottomNavigationButton onAction="#onInvoices" prefHeight="32.0" prefWidth="301.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/invoices.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Invoices">
-                                 <padding>
-                                    <Insets right="46.0" />
-                                 </padding>
-                              </BottomNavigationButton>
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -116,69 +116,9 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1078.0" prefWidth="1614.0" style="-fx-background-color: white;">
                <children>
                   <Line endX="1559.6666259765625" layoutX="60.0" layoutY="127.0" startX="-135.0" style="-fx-stroke: #E4E3E3;" />
-                  <Label layoutX="46.0" layoutY="164.0" style="-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 28; -fx-font-weight: 700; -fx-font-style: bold;" text="Reports" translateX="30.0" />
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="76.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #D2F9DB;" width="330.0" />
-                  <StackPane layoutX="93.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
-                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
-                        <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../images/total_reports_white.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <Label layoutX="98.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Total Reports" />
-                  <Label fx:id="totalRL" alignment="CENTER_RIGHT" layoutX="164.0" layoutY="225.0" prefHeight="56.0" prefWidth="224.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="101" />
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="442.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #D2F9DB;" width="330.0" />
-                  <StackPane layoutX="459.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
-                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
-                        <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../images/id_white.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <Label layoutX="464.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Discrete Test" />
-                  <Label fx:id="discreteTL" alignment="CENTER_RIGHT" layoutX="565.0" layoutY="225.0" prefHeight="56.0" prefWidth="185.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="1" />
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" fill="DODGERBLUE" height="114.0" layoutX="798.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #D2F9DB;" width="330.0" />
-                  <StackPane layoutX="821.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98">
-                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="51.98" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: #2C5C89;" width="51.98" />
-                        <ImageView fitHeight="33.906" fitWidth="33.906" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../images/last_week_tests_white.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <Label layoutX="826.0" layoutY="283.0" style="-fx-font-family: Poppins; -fx-font-size: 12px; -fx-text-fill: #0D1E2F; -fx-font-weight: 500; -fx-font-style: normal;" text="Last Week Reports" />
-                  <Label fx:id="lastWRL" alignment="CENTER_RIGHT" layoutX="925.0" layoutY="225.0" prefHeight="56.0" prefWidth="185.0" style="-fx-font-size: 40px; -fx-font-family: Poppins; -fx-font-style: bold; -fx-text-fill: #0D1E2F; -fx-font-weight: 700;" text="M" />
-                  <TableView fx:id="tableView" layoutX="85.0" layoutY="409.0" prefHeight="629.0" prefWidth="1309.0" stylesheets="@../../../../../css/table_view.css">
-                    <columns>
-                      <TableColumn fx:id="idCol" prefWidth="172.0" text="ID" />
-                        <TableColumn fx:id="testIdCol" prefWidth="172.0" text="Test ID" />
-                        <TableColumn fx:id="reportDate" prefWidth="172.0" text="Report Date" />
-                        <TableColumn fx:id="resultCol" prefWidth="792.0" text="Result" />
-                    </columns>
-                  </TableView>
-                  <TextField fx:id="searchTF" layoutX="93.0" layoutY="372.0" onKeyTyped="#onSearch" prefHeight="34.0" prefWidth="229.0" promptText="Search prompt" style="-fx-border-radius: 2; -fx-padding: 5 10 5 25;" />
+                  <StackPane layoutX="459.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98" />
+                  <StackPane layoutX="821.0" layoutY="227.0" prefHeight="51.98" prefWidth="51.98" />
                   <ImageView fitHeight="14.0" fitWidth="15.0" layoutX="93.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="15.0" fitWidth="19.0" layoutX="98.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="https://i.ibb.co/L5rtR1J/search.png" />
-                     </image>
-                  </ImageView>
-                  <HBox layoutX="1107.0" layoutY="369.0" prefHeight="34.0" prefWidth="276.0" spacing="5.0">
-                     <children>
-                        <BottomNavigationButton onAction="#onInsertReport" prefHeight="32.0" prefWidth="140.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/generate_report.png&quot;); -fx-background-color: #2C5C89; -fx-text-fill: #FFF; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 300; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" text="New Report" />
-                        <BottomNavigationButton onAction="#onUpdateReport" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/edit_white.png&quot;); -fx-background-color: orange; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
-                        <BottomNavigationButton onAction="#onDeletePatient" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/delete_white.png&quot;); -fx-background-color: red; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
-                        <BottomNavigationButton onAction="#onViewReport" prefHeight="4.0" prefWidth="5.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/view_white.png&quot;); -fx-background-color: #2C5C89; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
-                     </children>
-                  </HBox>
                   <Label layoutX="1437.0" layoutY="1047.0" text="Prototype v0.3 @ 12/05/2024" textFill="#9e9e9e" />
                   <HBox alignment="CENTER" layoutX="1358.0" layoutY="41.0" prefHeight="54.0" prefWidth="223.0" spacing="16.0">
                      <children>
@@ -224,6 +164,58 @@
                         <BottomNavigationButton fx:id="showAllBookmarks" layoutX="118.0" layoutY="456.0" onAction="#onShowAllBookmarks" prefHeight="27.0" prefWidth="190.0" style="-fx-font-size: 14px; -fx-font-family: Poppins; -fx-font-style: normal; -fx-font-weight: 700; -fx-text-fill: white; -fx-background-color: transparent; -fx-padding: 0 0 0 0;" text="Show All" />
                      </children>
                   </AnchorPane>
+                  <Label layoutX="91.0" layoutY="158.0" style="-fx-font-size: 18; -fx-font-weight: 700; -fx-font-family: Poppins; -fx-text-fill: #0D1E2F;" text="Account" />
+                  <ImageView fitHeight="10.0" fitWidth="10.0" layoutX="178.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/arrow.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="197.0" layoutY="158.0" style="-fx-font-size: 18; -fx-font-weight: 700; -fx-font-family: Poppins; -fx-text-fill: #0D1E2F;" text="Personal Info" />
+                  <Label layoutX="91.0" layoutY="191.0" style="-fx-font-size: 32; -fx-font-weight: 700; -fx-font-family: Poppins; -fx-text-fill: #0D1E2F;" text="Personal Info" />
+                  <Label layoutX="91.0" layoutY="271.0" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400;" text="Legal name" />
+                  <Label fx:id="legalName" layoutX="91.0" layoutY="294.0" prefHeight="20.0" prefWidth="267.0" style="-fx-text-fill: #717171; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 400;" text="Yazan Hamarsheh" />
+                  <Label layoutX="579.0" layoutY="271.0" onMouseClicked="#onEditName" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 700; -fx-underline: true;" text="Edit" />
+                  <Line endX="425.5" layoutX="190.0" layoutY="326.0" startX="-100.0" style="-fx-stroke: #949494;" />
+                  <Label layoutX="91.0" layoutY="361.0" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400;" text="Username" />
+                  <Label fx:id="username" layoutX="91.0" layoutY="384.0" prefHeight="20.0" prefWidth="229.0" style="-fx-text-fill: #717171; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 400;" text="yazan.h.22" />
+                  <Label layoutX="549.0" layoutY="361.0" onMouseClicked="#onChangeUsername" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 700; -fx-underline: true;" text="Change" />
+                  <Line endX="425.5" layoutX="190.0" layoutY="416.0" startX="-100.0" style="-fx-stroke: #949494;" />
+                  <Label layoutX="91.0" layoutY="455.0" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400;" text="Password" />
+                  <Label layoutX="91.0" layoutY="478.0" style="-fx-text-fill: #717171; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 400;" text="************" />
+                  <Line endX="425.5" layoutX="188.0" layoutY="510.0" startX="-100.0" style="-fx-stroke: #949494;" />
+                  <Label alignment="CENTER_RIGHT" layoutX="549.0" layoutY="455.0" onMouseClicked="#onChangePassword" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 700; -fx-underline: true;" text="Change" />
+                  <Label layoutX="91.0" layoutY="546.0" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 400;" text="Permission" />
+                  <Label fx:id="permissions" layoutX="91.0" layoutY="569.0" prefHeight="20.0" prefWidth="130.0" style="-fx-text-fill: #717171; -fx-font-family: Poppins; -fx-font-size: 14px; -fx-font-weight: 400;" text="REGULAR" />
+                  <Line endX="425.5" layoutX="190.0" layoutY="601.0" startX="-100.0" style="-fx-stroke: #949494;" />
+                  <Label alignment="CENTER_RIGHT" layoutX="480.0" layoutY="546.0" style="-fx-text-fill: #222; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 700; -fx-underline: true;" text="Non-modifiable" />
+                  <ImageView fitHeight="870.0" fitWidth="490.0" layoutX="1231.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/FAQs.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="adminOnlyL" layoutX="91.0" layoutY="650.0" style="-fx-font-size: 32; -fx-font-weight: 700; -fx-font-family: Poppins; -fx-text-fill: #0D1E2F;" text="User Management (Admin Only)" />
+                  <TableView fx:id="adminTableView" layoutX="88.0" layoutY="800.0" prefHeight="257.0" prefWidth="523.0" stylesheets="@../../../../../css/table_view.css">
+                    <columns>
+                      <TableColumn prefWidth="109.66665649414062" text="Doctor ID" />
+                      <TableColumn prefWidth="94.3333740234375" text="Username" />
+                        <TableColumn prefWidth="132.0" text="Password" />
+                        <TableColumn prefWidth="187.0" text="Permission" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="usernameTF" editable="false" layoutX="91.0" layoutY="714.0" prefWidth="223.0" promptText="Username" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <TextField fx:id="passwordTF" editable="false" layoutX="362.0" layoutY="714.0" promptText="Password" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <BottomNavigationButton fx:id="addB" alignment="CENTER" layoutX="640.0" layoutY="800.0" onAction="#onAddUser" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: white; -fx-graphic-text-gap: 5;" text="Add">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <BottomNavigationButton fx:id="deleteB" alignment="CENTER" layoutX="740.0" layoutY="800.0" onAction="#onDeleteUser" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 16px; -fx-font-weight: 600; -fx-font-style: normal; -fx-text-fill: white; -fx-graphic-text-gap: 5;" text="Delete">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <TextField fx:id="doctorIdTF" editable="false" layoutX="633.0" layoutY="714.0" promptText="Doctor ID" style="-fx-border-color: rgba(0, 0, 0, 0.25); -fx-border-radius: 12px; -fx-pref-width: 247px; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-width: 1px; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 300; -fx-alignment: left;" />
+                  <ComboBox fx:id="permCB" layoutX="904.0" layoutY="714.0" prefWidth="150.0" promptText="REGULAR" style="-fx-border-radius: 5px; -fx-border-color: rgba(0, 0, 0, 0.25); -fx-pref-width: 247; -fx-pref-height: 37px; -fx-background-color: rgba(196, 196, 196, 0.00); -fx-border-radius: 12px; -fx-border-width: 1px; -fx-font-size: 18px; -fx-font-family: Poppins; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0, 5, 5);" />
                </children>
             </AnchorPane>
         </items>

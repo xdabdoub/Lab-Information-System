@@ -30,6 +30,8 @@ public class Driver {
         PRIMARY_MANAGER.getDoctorsManager().initializeDoctors();
         PRIMARY_MANAGER.getSamplesManager().initializeSamples();
         PRIMARY_MANAGER.getUsersManager().initializeUsers();
+        PRIMARY_MANAGER.getTestsManager().initializeTests();
+        PRIMARY_MANAGER.getReportsManager().initializeReports();
 
         PRIMARY_MANAGER.getUsersManager().addUser(new User(GeneralUtils.encodeString("yazan.h.22"), GeneralUtils.encodeString("yazan@123/"), 1, Permission.ADMINISTRATOR));
 

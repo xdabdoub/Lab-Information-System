@@ -14,15 +14,18 @@ public class Invoice {
     private double amount;
     private Patient patient;
     private InvoiceStatus invoiceStatus;
+    private String description;
 
     private LocalDate lastModified;
 
-    public Invoice(long invoiceId, LocalDate invoiceDate, double amount, long patientId, InvoiceStatus invoiceStatus, LocalDate lastModified) {
+    public Invoice(long invoiceId, LocalDate invoiceDate, double amount, long patientId, InvoiceStatus invoiceStatus, String description,
+                   LocalDate lastModified) {
         this.invoiceId = invoiceId;
         this.invoiceDate = invoiceDate;
         this.amount = amount;
         this.patient = GeneralUtils.getPatientById(patientId);
         this.invoiceStatus = invoiceStatus;
+        this.description = description;
         this.lastModified = lastModified;
     }
 
@@ -72,5 +75,13 @@ public class Invoice {
 
     public void setLastModified(LocalDate lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

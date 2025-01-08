@@ -1,21 +1,22 @@
-package me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample;
+package me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports;
 
 import com.gluonhq.charm.glisten.control.BottomNavigationButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.Permission;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.SampleType;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.TestStatus;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.sub.BookmarksManager;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Bookmark;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Sample;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Report;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Test;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.User;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
@@ -28,61 +29,7 @@ import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class SampleEditorController {
-
-    @FXML
-    private TextField collectedByTF;
-
-    @FXML
-    private DatePicker collectionDateTF;
-
-    @FXML
-    private BottomNavigationButton dashboardB;
-
-    @FXML
-    private BottomNavigationButton historyB;
-
-    @FXML
-    private TextField idTF;
-
-    @FXML
-    private BottomNavigationButton patientB;
-
-    @FXML
-    public TextField patientIdTF;
-
-    @FXML
-    private BottomNavigationButton reportsB;
-
-    @FXML
-    private ComboBox<SampleType> sampleTypeCB;
-
-    @FXML
-    private BottomNavigationButton samplesB;
-
-    @FXML
-    private BottomNavigationButton submitTF;
-
-    @FXML
-    private BottomNavigationButton testRB;
-
-    @FXML
-    private Label termsL;
-
-    @FXML
-    private Label privacySettingsL;
-
-    @FXML
-    private Label nameL;
-
-    @FXML
-    private Label myAccountL;
-
-    @FXML
-    private Label logOutL;
-
-    @FXML
-    private BottomNavigationButton exitAndClose;
+public class ReportEditorController {
 
     @FXML
     private BottomNavigationButton bookmarksB;
@@ -91,62 +38,111 @@ public class SampleEditorController {
     private AnchorPane bookmarksDropDown;
 
     @FXML
-    private BottomNavigationButton showAllBookmarks;
+    private VBox bookmarksVBox;
+
+    @FXML
+    private BottomNavigationButton dashboardB;
+
+    @FXML
+    private BottomNavigationButton exitAndClose1;
+
+    @FXML
+    private BottomNavigationButton historyB;
+
+    @FXML
+    private TextField idTF;
+
+    @FXML
+    private Label logOutL1;
+
+    @FXML
+    private Label myAccountL1;
+
+    @FXML
+    private Label nameL1;
+
+    @FXML
+    private BottomNavigationButton patientB;
+
+    @FXML
+    private Label privacySettingsL1;
+
+    @FXML
+    private BottomNavigationButton reportsB;
+
+    @FXML
+    private TextField testIdTF;
+
+    @FXML
+    private BottomNavigationButton samplesB;
 
     @FXML
     private AnchorPane settingsDropDown;
 
     @FXML
-    private VBox bookmarksVBox;
+    private BottomNavigationButton showAllBookmarks;
 
-    public static Sample sample;
+    @FXML
+    private BottomNavigationButton submitTF;
+
+    @FXML
+    private Label termsL1;
+
+    @FXML
+    private DatePicker reportDateTF;
+
+    @FXML
+    private BottomNavigationButton testRB1;
+
+    @FXML
+    private TextArea resultTA;
+/*
+    private TextArea resultTA;
+    private TextField testIdTF;
+    private DatePicker reportDateTF;
+    private TextField idTF;
+*/
+    public static Report report;
+
 
     @FXML
     public void initialize() {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
-        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+        nameL1.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
 
-        BookmarksManager bookmarksManager = user.getBookmarksManager();
-        if (bookmarksManager.getBookmarks().isEmpty()) {
+        if (user.getBookmarksManager().getBookmarks().isEmpty()) {
             Label label = new Label("You don't have any bookmarks :(!");
             label.setStyle("-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 700; -fx-font-style: normal");
 
             bookmarksVBox.getChildren().add(label);
         } else {
-            for (Bookmark<?> bm : bookmarksManager.getBookmarks()) {
+
+            for (Bookmark<?> bm : user.getBookmarksManager().getBookmarks()) {
                 FXUtils.addBookmark(bm, bookmarksVBox, -1);
             }
         }
 
-        sampleTypeCB.getItems().addAll(SampleType.values());
-
-        sampleTypeCB.getSelectionModel().select(SampleType.BLOOD);
-
         idTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
-        collectionDateTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
-        collectedByTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
+        reportDateTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
 
-        if (sample == null) {
-            patientIdTF.setDisable(false);
-            idTF.setText((GeneralUtils.getLastSampleId() + 1) + "");
-            collectionDateTF.setValue(LocalDate.now());
-            collectedByTF.setText(user.getDoctor().getId() + "");
+        if (report == null) {
+            idTF.setDisable(false);
+            idTF.setText((GeneralUtils.getLastTestId() + 1) + "");
+            reportDateTF.setValue(LocalDate.now());
             return;
         } else {
-            patientIdTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
+            idTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
         }
 
-        idTF.setText(String.valueOf(sample.getSampleId()));
-        patientIdTF.setText(sample.getPatient().getId() + "");
-        collectionDateTF.setValue(sample.getCollectionDate());
-        collectedByTF.setText(user.getDoctor().getId() + "");
+        idTF.setText(String.valueOf(report.getReportId()));
+        reportDateTF.setValue(report.getDate());
     }
 
     @FXML
     void onDashboard(ActionEvent event) {
-        UIHandler.open("dashboard.fxml");
+
     }
 
     @FXML
@@ -156,78 +152,77 @@ public class SampleEditorController {
 
     @FXML
     void onPatients(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("patients.fxml");
     }
 
     @FXML
     void onPendingTestResults(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("tests.fxml");
     }
 
-
     @FXML
     void onReports(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("reports.fxml");
     }
 
     @FXML
     void onSamples(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("samples.fxml");
     }
 
     @FXML
     void onSubmission(ActionEvent event) {
-        if (!allFilledAndCorrect(patientIdTF)) {
+        if (!allFilledAndCorrect(idTF,testIdTF, resultTA)) {
             FXUtils.alert("Some values seem to be invalid!", Alert.AlertType.WARNING).show();
             return;
         }
+
 
         Optional<ButtonType> result = FXUtils.alert("Are you sure you'd like to proceed?", Alert.AlertType.CONFIRMATION).showAndWait();
         if (!result.isPresent()) return;
         if (result.get() != ButtonType.OK) return;
 
-        int id = Integer.parseInt(idTF.getText());
-        long patientId = Long.parseLong(patientIdTF.getText());
-        SampleType sampleType = sampleTypeCB.getSelectionModel().getSelectedItem();
-        LocalDate collectionDate = collectionDateTF.getValue();
-        long collectedBy = Long.parseLong(collectedByTF.getText());
 
-        if (sample == null) { // INSERT
-            if(GeneralUtils.getSampleById(id)!=null){
+        int id = Integer.parseInt(idTF.getText());
+        LocalDate reportDate = reportDateTF.getValue();
+        String resultText = resultTA.getText();
+        LocalDate lastModified = LocalDate.now();
+        Test testObj = GeneralUtils.getTestById(Integer.parseInt(testIdTF.getText()));
+
+
+        if (report == null) { // INSERT
+            if(GeneralUtils.getReportById(id)!=null){
                 FXUtils.alert("The ID already Exists. You cannot add it.", Alert.AlertType.ERROR).show();
 
             }
             else{
-                Sample newSample = new Sample(id, patientId, collectedBy, sampleType.toString(), collectionDate, LocalDate.now());
-                Driver.PRIMARY_MANAGER.getSamplesManager().addSample(newSample);
+                Report newReport = new Report(id, Integer.parseInt(testIdTF.getText()), reportDate, resultText,lastModified);
+                Driver.PRIMARY_MANAGER.getReportsManager().addReport(newReport);
             }
 
         } else {
             // UPDATE
-            long oldId = sample.getSampleId();
-
-            sample.setSampleId(id);
-            sample.setPatient(GeneralUtils.getPatientById(patientId));
-            sample.setSampleType(sampleTypeCB.getSelectionModel().getSelectedItem());
-            sample.setCollectionDate(collectionDate);
-            sample.setLastModified(LocalDate.now());
-            Driver.PRIMARY_MANAGER.getSamplesManager().updateSample(sample, oldId);
+            long oldId = report.getReportId();
+            report.setReportId(id);
+            report.setTest(testObj);
+            report.setDate(reportDate);
+            report.setResult(resultText);
+            report.setLastModified(lastModified);
+            Driver.PRIMARY_MANAGER.getReportsManager().updateReports(report, oldId);
         }
 
-        sample = null;
+        report = null;
 
         FXUtils.alert("Action was successful!", Alert.AlertType.INFORMATION).show();
         idTF.clear();
-        patientIdTF.clear();
-        collectedByTF.clear();
-        collectionDateTF.setValue(LocalDate.now());
-        sampleTypeCB.getSelectionModel().select(SampleType.BLOOD);
-
-        UIHandler.open("samples.fxml");
+        testIdTF.clear();
+        reportDateTF.setValue(LocalDate.now());
+        resultTA.clear();
+        UIHandler.open("reports.fxml");
     }
 
     @FXML
@@ -293,18 +288,20 @@ public class SampleEditorController {
 
     @FXML
     void onInvoices(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("invoices.fxml");
     }
 
-    private boolean allFilledAndCorrect(TextField patientIdTF) {
-        if (patientIdTF.getText().isEmpty())
+    private boolean allFilledAndCorrect(TextField idTF, TextField testIdTF, TextArea resultTA) {
+        if (idTF.getText().isEmpty() || testIdTF.getText().isEmpty() || resultTA.getText().isEmpty())
             return false;
 
         try {
-            Long.parseLong(patientIdTF.getText());
+            Integer.parseInt(idTF.getText());
+            Integer.parseInt(testIdTF.getText());
         } catch (NumberFormatException ex) { return false; }
 
         return true;
     }
+
 }

@@ -156,4 +156,9 @@ public class DashboardScreenController {
     void onTerms(MouseEvent event) {
 
     }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+
+    }
 }

@@ -1,21 +1,25 @@
-package me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample;
+package me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports;
 
 import com.gluonhq.charm.glisten.control.BottomNavigationButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.print.PrinterJob;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.Permission;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.SampleType;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleViewerController;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.EntityType;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.sub.BookmarksManager;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Bookmark;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Sample;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Report;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.User;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
@@ -28,61 +32,10 @@ import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class SampleEditorController {
+public class ReportViewerController {
 
     @FXML
-    private TextField collectedByTF;
-
-    @FXML
-    private DatePicker collectionDateTF;
-
-    @FXML
-    private BottomNavigationButton dashboardB;
-
-    @FXML
-    private BottomNavigationButton historyB;
-
-    @FXML
-    private TextField idTF;
-
-    @FXML
-    private BottomNavigationButton patientB;
-
-    @FXML
-    public TextField patientIdTF;
-
-    @FXML
-    private BottomNavigationButton reportsB;
-
-    @FXML
-    private ComboBox<SampleType> sampleTypeCB;
-
-    @FXML
-    private BottomNavigationButton samplesB;
-
-    @FXML
-    private BottomNavigationButton submitTF;
-
-    @FXML
-    private BottomNavigationButton testRB;
-
-    @FXML
-    private Label termsL;
-
-    @FXML
-    private Label privacySettingsL;
-
-    @FXML
-    private Label nameL;
-
-    @FXML
-    private Label myAccountL;
-
-    @FXML
-    private Label logOutL;
-
-    @FXML
-    private BottomNavigationButton exitAndClose;
+    private BottomNavigationButton bookmarkB;
 
     @FXML
     private BottomNavigationButton bookmarksB;
@@ -91,15 +44,88 @@ public class SampleEditorController {
     private AnchorPane bookmarksDropDown;
 
     @FXML
-    private BottomNavigationButton showAllBookmarks;
+    private VBox bookmarksVBox;
+
+
+    @FXML
+    private TextField reportDate;
+
+    @FXML
+    private BottomNavigationButton dashboardB;
+
+    @FXML
+    private Label originSample;
+
+    @FXML
+    private BottomNavigationButton editInfoB;
+
+    @FXML
+    private BottomNavigationButton exitAndClose;
+
+    @FXML
+    private BottomNavigationButton historyB;
+
+    @FXML
+    private TextField idTF;
+
+    @FXML
+    private Label logOutL;
+
+    @FXML
+    private Label myAccountL;
+
+    @FXML
+    private Label nameL;
+
+    @FXML
+    private Label nameL1;
+
+    @FXML
+    private BottomNavigationButton patientB;
+
+    @FXML
+    private TextField testIdTF;
+
+    @FXML
+    private Label result;
+
+    @FXML
+    private Label patientNameL;
+
+    @FXML
+    private Label originPatient;
+
+    @FXML
+    private Label privacySettingsL;
+
+    @FXML
+    private VBox recentActivity;
+
+    @FXML
+    private BottomNavigationButton reportsB;
+
+    @FXML
+    private BottomNavigationButton samplesB;
 
     @FXML
     private AnchorPane settingsDropDown;
 
     @FXML
-    private VBox bookmarksVBox;
+    private BottomNavigationButton showAllBookmarks;
 
-    public static Sample sample;
+    @FXML
+    private Label termsL;
+
+    @FXML
+    private BottomNavigationButton testB;
+
+    @FXML
+    private BottomNavigationButton testRB;
+
+    @FXML
+    private Label originTest;
+
+    public static Report report;
 
     @FXML
     public void initialize() {
@@ -109,125 +135,124 @@ public class SampleEditorController {
         nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
 
         BookmarksManager bookmarksManager = user.getBookmarksManager();
+        if (bookmarksManager.bookmarkExists(report)) bookmarkB.setGraphic(new ImageView(new Image("https://i.ibb.co/tqmQ9Kg/bookmark-white-filled.png")));
+
+
         if (bookmarksManager.getBookmarks().isEmpty()) {
             Label label = new Label("You don't have any bookmarks :(!");
             label.setStyle("-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 700; -fx-font-style: normal");
 
             bookmarksVBox.getChildren().add(label);
         } else {
+
             for (Bookmark<?> bm : bookmarksManager.getBookmarks()) {
                 FXUtils.addBookmark(bm, bookmarksVBox, -1);
             }
         }
 
-        sampleTypeCB.getItems().addAll(SampleType.values());
+        if (report == null) return;
 
-        sampleTypeCB.getSelectionModel().select(SampleType.BLOOD);
+        patientNameL.setText("Report No. " + report.getReportId() + " Information");
+        idTF.setText(String.valueOf(report.getReportId()));
+        testIdTF.setText(report.getTest().getTestId() + "");
+        result.setText(report.getResult());
+        reportDate.setText(report.getDate().toString());
 
-        idTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
-        collectionDateTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
-        collectedByTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
+        originTest.setText(report.getTest().getTestId() + "");
+        originSample.setText(report.getTest().getSample().getSampleId() + "");
+        originPatient.setText(report.getTest().getSample().getPatient().getId() + "");
+    }
 
-        if (sample == null) {
-            patientIdTF.setDisable(false);
-            idTF.setText((GeneralUtils.getLastSampleId() + 1) + "");
-            collectionDateTF.setValue(LocalDate.now());
-            collectedByTF.setText(user.getDoctor().getId() + "");
+    @FXML
+    void onBookmark(ActionEvent event) {
+        User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
+        if (user == null) return;
+
+        BookmarksManager bookmarksManager = user.getBookmarksManager();
+        if (!bookmarksManager.bookmarkExists(report)) {
+            bookmarkB.setGraphic(new ImageView(new Image("https://i.ibb.co/tqmQ9Kg/bookmark-white-filled.png")));
+
+            Bookmark<?> bookmark = new Bookmark<Report>(GeneralUtils.getLastBookmarkId(user) + 1, user.getDoctor().getId(), report.getReportId(),
+                    EntityType.REPORT, LocalDate.now());
+            bookmarksManager.addBookMark(bookmark);
+
+            FXUtils.addBookmark(bookmark, bookmarksVBox, 0);
+
+            FXUtils.alert("Report #" + report.getReportId() + " has been added to your bookmark list!", Alert.AlertType.INFORMATION);
             return;
-        } else {
-            patientIdTF.setDisable(user.getPermission() != Permission.ADMINISTRATOR);
         }
 
-        idTF.setText(String.valueOf(sample.getSampleId()));
-        patientIdTF.setText(sample.getPatient().getId() + "");
-        collectionDateTF.setValue(sample.getCollectionDate());
-        collectedByTF.setText(user.getDoctor().getId() + "");
+        Bookmark<?> bookmark = bookmarksManager.getBookmarkByObject(report);
+
+        bookmarkB.setGraphic(new ImageView(new Image("https://i.ibb.co/fF9hdzQ/bookmark-white-outlined.png")));
+        bookmarksManager.deleteBookmark(bookmark);
+        FXUtils.alert("Report #" + report.getReportId() + " has been removed from your bookmark list!", Alert.AlertType.INFORMATION);
+    }
+
+    @FXML
+    void onPrint(ActionEvent event) {
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+
+        if (printerJob != null) {
+            boolean success = printerJob.showPrintDialog(UIHandler.getStage());
+            if (success) {
+                boolean printed = printerJob.printPage(null);
+                if (printed) printerJob.endJob();
+            }
+        }
+    }
+
+    @FXML
+    void onShowMore(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onOriginSample(ActionEvent event) {
+        SampleViewerController.sample = report.getTest().getSample();
+        UIHandler.open("sample_viewer.fxml");
     }
 
     @FXML
     void onDashboard(ActionEvent event) {
+        report = null;
         UIHandler.open("dashboard.fxml");
     }
 
     @FXML
+    void onEditInfo(ActionEvent event) {
+        ReportEditorController.report = report;
+        UIHandler.open("insert_report.fxml");
+    }
+
+    @FXML
     void onHistory(ActionEvent event) {
+        report = null;
 
     }
 
     @FXML
     void onPatients(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("patients.fxml");
     }
 
     @FXML
     void onPendingTestResults(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("tests.fxml");
     }
 
-
     @FXML
     void onReports(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("reports.fxml");
     }
 
     @FXML
     void onSamples(ActionEvent event) {
-        sample = null;
-        UIHandler.open("samples.fxml");
-    }
-
-    @FXML
-    void onSubmission(ActionEvent event) {
-        if (!allFilledAndCorrect(patientIdTF)) {
-            FXUtils.alert("Some values seem to be invalid!", Alert.AlertType.WARNING).show();
-            return;
-        }
-
-        Optional<ButtonType> result = FXUtils.alert("Are you sure you'd like to proceed?", Alert.AlertType.CONFIRMATION).showAndWait();
-        if (!result.isPresent()) return;
-        if (result.get() != ButtonType.OK) return;
-
-        int id = Integer.parseInt(idTF.getText());
-        long patientId = Long.parseLong(patientIdTF.getText());
-        SampleType sampleType = sampleTypeCB.getSelectionModel().getSelectedItem();
-        LocalDate collectionDate = collectionDateTF.getValue();
-        long collectedBy = Long.parseLong(collectedByTF.getText());
-
-        if (sample == null) { // INSERT
-            if(GeneralUtils.getSampleById(id)!=null){
-                FXUtils.alert("The ID already Exists. You cannot add it.", Alert.AlertType.ERROR).show();
-
-            }
-            else{
-                Sample newSample = new Sample(id, patientId, collectedBy, sampleType.toString(), collectionDate, LocalDate.now());
-                Driver.PRIMARY_MANAGER.getSamplesManager().addSample(newSample);
-            }
-
-        } else {
-            // UPDATE
-            long oldId = sample.getSampleId();
-
-            sample.setSampleId(id);
-            sample.setPatient(GeneralUtils.getPatientById(patientId));
-            sample.setSampleType(sampleTypeCB.getSelectionModel().getSelectedItem());
-            sample.setCollectionDate(collectionDate);
-            sample.setLastModified(LocalDate.now());
-            Driver.PRIMARY_MANAGER.getSamplesManager().updateSample(sample, oldId);
-        }
-
-        sample = null;
-
-        FXUtils.alert("Action was successful!", Alert.AlertType.INFORMATION).show();
-        idTF.clear();
-        patientIdTF.clear();
-        collectedByTF.clear();
-        collectionDateTF.setValue(LocalDate.now());
-        sampleTypeCB.getSelectionModel().select(SampleType.BLOOD);
-
-        UIHandler.open("samples.fxml");
+        report = null;
+        UIHandler.open("reports.fxml");
     }
 
     @FXML
@@ -293,18 +318,7 @@ public class SampleEditorController {
 
     @FXML
     void onInvoices(ActionEvent event) {
-        sample = null;
+        report = null;
         UIHandler.open("invoices.fxml");
-    }
-
-    private boolean allFilledAndCorrect(TextField patientIdTF) {
-        if (patientIdTF.getText().isEmpty())
-            return false;
-
-        try {
-            Long.parseLong(patientIdTF.getText());
-        } catch (NumberFormatException ex) { return false; }
-
-        return true;
     }
 }

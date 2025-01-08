@@ -5,6 +5,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,10 +21,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleEditorContr
 import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleViewerController;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.TestStatus;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Bookmark;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Sample;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Test;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.User;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.*;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
 
 import java.awt.*;
@@ -188,7 +187,7 @@ public class TestsScreenController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -243,7 +242,15 @@ public class TestsScreenController {
 
     @FXML
     void onSearch(KeyEvent event) {
+        ObservableList<Test> filteredPatients = FXCollections.observableArrayList();
 
+        if (searchTF.getText().isEmpty()) {
+            filteredPatients.addAll(Driver.PRIMARY_MANAGER.getTestsManager().getTests());
+        } else {
+            getTestByPartOfId(filteredPatients, searchTF.getText());
+        }
+
+        tableView.setItems(filteredPatients);
     }
 
     @FXML
@@ -266,7 +273,7 @@ public class TestsScreenController {
             return;
         }
 
-//        TestViewerController.test = test;
+        TestViewerController.test = test;
         UIHandler.open("test_viewer.fxml");
     }
 
@@ -302,7 +309,7 @@ public class TestsScreenController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -330,5 +337,18 @@ public class TestsScreenController {
     void onShowAllBookmarks(ActionEvent event) {
 
     }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        UIHandler.open("invoices.fxml");
+    }
+    private void getTestByPartOfId(ObservableList<Test> filteredPatients, String partOfId) {
+        for (Test test : Driver.PRIMARY_MANAGER.getTestsManager().getTests()) {
+            if (String.valueOf(test.getTestId()).startsWith(partOfId)||test.getTestStatus().toString().toLowerCase().startsWith(partOfId.toLowerCase())) {
+                filteredPatients.add(test);
+            }
+        }
+    }
+
 
 }

@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.patient.PatientEditorController;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.tests.TestEditorController;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.EntityType;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.TestStatus;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
@@ -134,6 +135,8 @@ public class SampleViewerController {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
+        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         BookmarksManager bookmarksManager = user.getBookmarksManager();
         if (bookmarksManager.bookmarkExists(sample)) bookmarkB.setGraphic(new ImageView(new Image("https://i.ibb.co/tqmQ9Kg/bookmark-white-filled.png")));
 
@@ -191,14 +194,16 @@ public class SampleViewerController {
     }
 
     @FXML
-    void onCall(ActionEvent event) {
+    void onTest(ActionEvent event) {
         // onTest
-
+        TestEditorController.test = null;
+        UIHandler.open("insert_test.fxml");
     }
 
     @FXML
     void onDashboard(ActionEvent event) {
         sample = null;
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -269,7 +274,7 @@ public class SampleViewerController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -296,6 +301,12 @@ public class SampleViewerController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        sample = null;
+        UIHandler.open("invoices.fxml");
     }
 
 }

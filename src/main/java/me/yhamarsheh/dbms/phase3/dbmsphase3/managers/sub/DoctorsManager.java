@@ -4,7 +4,6 @@ import javafx.scene.control.Button;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Doctor;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.storage.Query;
-import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

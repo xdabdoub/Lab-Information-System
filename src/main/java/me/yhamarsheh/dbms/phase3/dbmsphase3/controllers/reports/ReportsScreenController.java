@@ -18,6 +18,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.managers.UIHandler;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Bookmark;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Report;
+import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Test;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.User;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.FXUtils;
 
@@ -228,7 +229,7 @@ public class ReportsScreenController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -264,7 +265,31 @@ public class ReportsScreenController {
 
     @FXML
     void onViewReport(ActionEvent event) {
+        Report report = tableView.getSelectionModel().getSelectedItem();
+        if (report == null) {
+            FXUtils.alert("Selection is Empty! You must select a report to view.", Alert.AlertType.ERROR).show();
+            return;
+        }
 
+        ReportViewerController.report = report;
+        UIHandler.open("report_viewer.fxml");
     }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        UIHandler.open("invoices.fxml");
+    }
+
+    private void getReportByPartOfId(ObservableList<Report> filteredPatients, String partOfId) {
+        for (Report report : Driver.PRIMARY_MANAGER.getReportsManager().getReports()) {
+            if (String.valueOf(report.getReportId()).startsWith(partOfId) ||
+                    String.valueOf(report.getTest().getTestId()).toLowerCase().startsWith(partOfId.toLowerCase())) {
+                filteredPatients.add(report);
+            }
+        }
+    }
+
+
+
 
 }

@@ -81,6 +81,12 @@
                                     <Insets right="46.0" />
                                  </padding>
                               </BottomNavigationButton>
+                              <HBox prefHeight="27.0" prefWidth="200.0" />
+                              <BottomNavigationButton onAction="#onInvoices" prefHeight="32.0" prefWidth="301.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/invoices.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Invoices">
+                                 <padding>
+                                    <Insets right="46.0" />
+                                 </padding>
+                              </BottomNavigationButton>
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -158,7 +164,7 @@
                         <TableColumn fx:id="testDateCol" prefWidth="255.0" text="Test Date" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="searchTF" layoutX="93.0" layoutY="372.0" onKeyPressed="#onSearch" prefHeight="34.0" prefWidth="229.0" promptText="Search prompt" style="-fx-border-radius: 550; -fx-padding: 5 10 5 25;" />
+                  <TextField fx:id="searchTF" layoutX="93.0" layoutY="372.0" onKeyTyped="#onSearch" prefHeight="34.0" prefWidth="229.0" promptText="Search prompt" style="-fx-border-radius: 550; -fx-padding: 5 10 5 25;" />
                   <ImageView fitHeight="14.0" fitWidth="15.0" layoutX="93.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="15.0" fitWidth="19.0" layoutX="98.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
                      <image>

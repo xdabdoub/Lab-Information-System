@@ -109,6 +109,8 @@ public class PatientEditorController {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
+        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         if (user.getBookmarksManager().getBookmarks().isEmpty()) {
             Label label = new Label("You don't have any bookmarks :(!");
             label.setStyle("-fx-text-fill: #0D1E2F; -fx-font-family: Poppins; -fx-font-size: 18px; -fx-font-weight: 700; -fx-font-style: normal");
@@ -132,7 +134,7 @@ public class PatientEditorController {
 
     @FXML
     void onDashboard(ActionEvent event) {
-
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -249,7 +251,7 @@ public class PatientEditorController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -276,6 +278,12 @@ public class PatientEditorController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        patient = null;
+        UIHandler.open("invoices.fxml");
     }
 
     public void setPatient(Patient patient) {

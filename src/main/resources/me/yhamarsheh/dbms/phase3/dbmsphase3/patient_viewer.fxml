@@ -74,6 +74,12 @@
                                                 <Insets right="46.0" />
                                             </padding>
                                         </BottomNavigationButton>
+                              <HBox prefHeight="27.0" prefWidth="200.0" />
+                              <BottomNavigationButton onAction="#onInvoices" prefHeight="32.0" prefWidth="301.0" style="-fx-graphic: url(&quot;file:/C:/Users/yhama/Documents/DBMS-Phase3/src/main/resources/images/invoices.png&quot;); -fx-graphic-text-gap: 15; -fx-background-color: transparent; -fx-font-family: Poppins; -fx-text-fill: #AEB3BD; -fx-font-size: 18px; -fx-font-weight: 400; -fx-font-style: normal;" text="Invoices">
+                                 <padding>
+                                    <Insets right="46.0" />
+                                 </padding>
+                              </BottomNavigationButton>
                                     </children>
                                     <opaqueInsets>
                                         <Insets />

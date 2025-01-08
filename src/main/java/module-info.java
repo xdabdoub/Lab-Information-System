@@ -15,5 +15,8 @@ module me.yhamarsheh.dbms.phase3.dbmsphase3 {
     exports me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.patient;
     opens me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.patient to javafx.fxml;
     opens me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.tests to javafx.fxml;
+    opens me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports to javafx.fxml;
+    opens me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.invoices to javafx.fxml;
+    opens me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.dashboard to javafx.fxml;
 
 }

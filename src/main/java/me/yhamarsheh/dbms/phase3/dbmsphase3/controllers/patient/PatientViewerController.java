@@ -139,6 +139,8 @@ public class PatientViewerController {
         User user = Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser();
         if (user == null) return;
 
+        nameL.setText("Hello, " + Driver.PRIMARY_MANAGER.getUsersManager().getActiveUser().getDoctor().getName());
+
         BookmarksManager bookmarksManager = user.getBookmarksManager();
         if (bookmarksManager.getBookmarks().isEmpty()) {
             Label label = new Label("You don't have any bookmarks :(!");
@@ -172,6 +174,7 @@ public class PatientViewerController {
     @FXML
     void onDashboard(ActionEvent event) {
         patient = null;
+        UIHandler.open("dashboard.fxml");
     }
 
     @FXML
@@ -296,7 +299,7 @@ public class PatientViewerController {
 
     @FXML
     void onMyAccount(MouseEvent event) {
-
+        UIHandler.open("personal_info.fxml");
     }
 
     @FXML
@@ -323,6 +326,12 @@ public class PatientViewerController {
     @FXML
     void onShowAllBookmarks(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onInvoices(ActionEvent event) {
+        patient = null;
+        UIHandler.open("invoices.fxml");
     }
 
 }
