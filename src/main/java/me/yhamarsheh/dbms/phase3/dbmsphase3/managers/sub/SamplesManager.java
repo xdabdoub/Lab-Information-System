@@ -9,6 +9,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class SamplesManager {
                         rs.getLong("collectedBy"),
                         rs.getString("sampleType"),
                         rs.getDate("collectionDate").toLocalDate(),
-                        rs.getDate("lastModified").toLocalDate()
+                        (rs.getDate("lastModified") == null ? LocalDate.now() : rs.getDate("lastModified").toLocalDate())
                 );
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -63,18 +64,6 @@ public class SamplesManager {
                 sample.getCollectedBy().getId(),
                 oldId);
     }
-
-    /*CREATE TABLE Samples
-(
-    sampleId       INT AUTO_INCREMENT PRIMARY KEY,
-    patientId      INT,
-    FOREIGN KEY (patientId) REFERENCES Patients (patientId) ON DELETE CASCADE ON UPDATE CASCADE,
-    sampleType     VARCHAR(255) NOT NULL,
-    collectionDate DATE        NOT NULL,
-    collectedBy    INT,
-    lastModified DATE,
-    FOREIGN KEY (collectedBy) REFERENCES Doctors (doctorId) ON DELETE CASCADE ON UPDATE CASCADE
-);*/
 
     public LinkedList<Sample> getSamples() {
         return samples;

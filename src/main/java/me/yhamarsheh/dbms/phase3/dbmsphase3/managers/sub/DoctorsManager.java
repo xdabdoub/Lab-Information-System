@@ -40,7 +40,7 @@ public class DoctorsManager {
         doctors.add(doctor);
         Query query = new Query(Driver.getSQLConnection().getConnection());
         query.build("INSERT INTO Doctors (doctorId, name, phone, address) VALUES (?,?,?,?)",
-                doctor.getId(), doctor.getName(),  doctor.getPhone(), doctor.getAddress());
+                doctor.getId(), doctor.getName(), doctor.getPhone(), doctor.getAddress());
     }
 
     public void deleteDoctor(Doctor doctor) {
@@ -70,7 +70,5 @@ public class DoctorsManager {
         Long count = query.get("SELECT COUNT(*) FROM Doctors;",    1);
         return count != null ? count.intValue() : 0;
     }
-
-
 
 }

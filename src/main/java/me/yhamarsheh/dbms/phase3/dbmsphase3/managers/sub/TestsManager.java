@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class TestsManager {
+
     private LinkedList<Test> tests;
 
     public TestsManager() {
@@ -42,8 +43,9 @@ public class TestsManager {
     public void addTest(Test test) {
         tests.add(test);
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        query.build("INSERT INTO Tests (testId, sample, testStatus, testDate) VALUES (?,?,?,?)",
-                test.getTestId(),test.getSample(),test.getTestStatus(),test.getTestDate());
+        query.build("INSERT INTO Tests (testId, sampleId, testStatus, testDate, lastModified) VALUES (?,?,?,?,?)",
+                test.getTestId(),test.getSample().getSampleId(),test.getTestStatus().toString(),Date.valueOf(test.getTestDate()),
+                Date.valueOf(test.getLastModified()));
 
 
     }
@@ -105,7 +107,7 @@ public class TestsManager {
                         return null;
                     }
                 },
-                Date.valueOf(testDate), limit  // تمرير testDate و limit كمعاملات
+                Date.valueOf(testDate), limit
         );
     }
 
@@ -123,7 +125,7 @@ public class TestsManager {
 
     public int getTestsWithinDateRange(Date startDate, Date endDate) {
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        Long count = query.get("SELECT COUNT(*) AS testsCount FROM Tests WHERE testDate BETWEEN ? AND ?",1, startDate, endDate);
+        Long count = query.get("SELECT COUNT(*) AS testsCount FROM Tests WHERE testDate BETWEEN ? AND ?;",1, startDate, endDate);
         return count != null ? count.intValue() : 0;
     }
 

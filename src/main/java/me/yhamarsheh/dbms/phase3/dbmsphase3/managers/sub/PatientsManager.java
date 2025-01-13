@@ -131,9 +131,10 @@ public class PatientsManager {
                 "SELECT SUM(i.amount) " +
                         "FROM invoices i " +
                         "INNER JOIN patients p ON i.patientId = p.patientId " +
-                        "WHERE i.patientId = ?;",
+                        "WHERE i.patientId = ? AND i.invoiceStatus = ? ;",
                 1,
-                patient.getId()
+                patient.getId(),
+                InvoiceStatus.DUE.toString()
         );
 
         return totalAmount != null ? totalAmount.intValue() : 0;

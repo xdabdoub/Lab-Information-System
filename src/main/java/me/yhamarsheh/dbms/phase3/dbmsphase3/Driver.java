@@ -32,8 +32,10 @@ public class Driver {
         PRIMARY_MANAGER.getUsersManager().initializeUsers();
         PRIMARY_MANAGER.getTestsManager().initializeTests();
         PRIMARY_MANAGER.getReportsManager().initializeReports();
+        PRIMARY_MANAGER.getInvoicesManager().initializeInvoices();
 
         PRIMARY_MANAGER.getUsersManager().addUser(new User(GeneralUtils.encodeString("yazan.h.22"), GeneralUtils.encodeString("yazan@123/"), 1, Permission.ADMINISTRATOR));
+        PRIMARY_MANAGER.getUsersManager().addUser(new User(GeneralUtils.encodeString("nhirbawi"), GeneralUtils.encodeString("hirbawi@bzu"), -1, Permission.ADMINISTRATOR));
 
         UIHandler.launchApp(args);
     }

@@ -41,8 +41,9 @@ public class ReportsManager {
     public void addReport(Report report) {
         reports.add(report);
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        query.build("INSERT INTO Reports (reportId, testId, reportDate, result) VALUES (?,?,?,?)",
-                report.getReportId(), report.getTest(), report.getDate(), report.getResult());
+        query.build("INSERT INTO Reports (reportId, testId, reportDate, result, lastModified) VALUES (?,?,?,?,?)",
+                report.getReportId(), report.getTest().getTestId(), Date.valueOf(report.getDate()), report.getResult(),
+                Date.valueOf(report.getLastModified()));
 
     }
 
@@ -55,7 +56,7 @@ public class ReportsManager {
 
     public void updateReports(Report report, long oldId) {
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        query.build("UPDATE Reports SET   result=? WHERE reportId=?",
+        query.build("UPDATE Reports SET result=? WHERE reportId=?",
                 report.getReportId(),
                 oldId);
     }

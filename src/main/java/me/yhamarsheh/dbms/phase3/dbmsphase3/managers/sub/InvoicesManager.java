@@ -6,6 +6,7 @@ import me.yhamarsheh.dbms.phase3.dbmsphase3.objects.Invoice;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.storage.Query;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.utilities.GeneralUtils;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -119,7 +120,7 @@ public class InvoicesManager {
 
     public int getDueAmount() {
         Query query = new Query(Driver.getSQLConnection().getConnection());
-        Long count = query.get("SELECT SUM(amount) FROM Invoices WHERE invoiceStatus = 'DUE'", 1);
+        BigDecimal count = query.get("SELECT SUM(amount) FROM Invoices WHERE invoiceStatus = 'DUE'", 1);
         return count != null ? count.intValue() : 0;
     }
 
@@ -128,6 +129,5 @@ public class InvoicesManager {
         Long count = query.get("SELECT SUM(amount) FROM Invoices WHERE invoiceStatus = 'PAID'", 1);
         return count != null ? count.intValue() : 0;
     }
-
 
 }

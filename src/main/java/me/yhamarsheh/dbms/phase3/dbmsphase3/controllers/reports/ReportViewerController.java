@@ -3,16 +3,21 @@ package me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.reports;
 import com.gluonhq.charm.glisten.control.BottomNavigationButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.print.PrinterJob;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.Driver;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.controllers.sample.SampleViewerController;
 import me.yhamarsheh.dbms.phase3.dbmsphase3.enums.EntityType;
@@ -203,8 +208,25 @@ public class ReportViewerController {
     }
 
     @FXML
-    void onShowMore(ActionEvent event) {
+    void onShowMore(MouseEvent event) {
+        Stage stage = new Stage();
+        BorderPane bp = new BorderPane();
+        Label label = new Label("Results of Report #" + report.getReportId());
 
+        TextArea textArea = new TextArea();
+        textArea.setEditable(false);
+        textArea.setText(report.getResult());
+
+        bp.setTop(label);
+        bp.setCenter(textArea);
+
+        BorderPane.setAlignment(label, Pos.CENTER);
+        BorderPane.setAlignment(textArea, Pos.CENTER);
+
+        Scene scene = new Scene(bp, 200, 200);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
