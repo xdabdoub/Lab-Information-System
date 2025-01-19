@@ -48,19 +48,19 @@ If a user wants to edit a patient’s information at a later date, they can book
 
 ## Screenshots
 1. Dashboard Screen
-![Dashboard Screen](screenshots/dashboard.png)
+![Dashboard Screen](screenshots/Dashboard.png)
 2. Patients
-![Patients Screen](screenshots/patients.png)
+![Patients Screen](screenshots/Patients.png)
 3. Patient Editor (Insert and Update)
-![Patients Editor](screenshots/patient_editor.png)
+![Patients Editor](screenshots/PatientEditor.png)
 4. Patient Viewer
-![Patient Viewer](screenshots/patient_viewer.png)
+![Patient Viewer](screenshots/PatientViewer.png)
 5. Sample Viewer
-![Sample Viewer](screenshots/patient_viewer.png)
+![Sample Viewer](screenshots/SampleViewer.png)
 6. Test Viewer
-![Test Viewer](screenshots/patient_viewer.png)
+![Test Viewer](screenshots/TestViewer.png)
 7. Report Viewer
-![Report Viewer](screenshots/patient_viewer.png)
+![Report Viewer](screenshots/ReportViewer.png)
 9. Personal Info
 ![Personal Info](screenshots/personal_info.png)
     
