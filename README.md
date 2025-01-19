@@ -46,6 +46,18 @@ If a user wants to edit a patient’s information at a later date, they can book
 - **MySQL**: Database system for storing and managing data.  
 - **SceneBuilder**: Tool for designing JavaFX user interfaces.
 
+## Installation and Setup
+
+1. Clone this repository to your local machine.  
+   ```bash
+   git clone https://github.com/xdabdoub/Lab-Information-System
+   ```
+2. Add the charm-glisten-6.1.0 library to your project.
+3. Launch the MySQL server on port 3306.
+4. You're good to go now!
+
+---
+
 <details>
   <summary><h1>Screenshots</h1></summary>
   
@@ -65,13 +77,3 @@ If a user wants to edit a patient’s information at a later date, they can book
 ![Report Viewer](screenshots/ReportViewer.png)
 9. Personal Info
 ![Personal Info](screenshots/personal_info.png)
-    
-## Installation and Setup
-
-1. Clone this repository to your local machine.  
-   ```bash
-   git clone https://github.com/xdabdoub/Lab-Information-System
-   ```
-2. Add the charm-glisten-6.1.0 library to your project.
-3. Launch the MySQL server on port 3306.
-4. You're good to go now!
