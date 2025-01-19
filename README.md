@@ -47,7 +47,7 @@ If a user wants to edit a patient’s information at a later date, they can book
 - **SceneBuilder**: Tool for designing JavaFX user interfaces.
 
 <details>
-  <summary>Screenshots</summary>
+  <summary><h1>Screenshots</h1></summary>
   
 1. Dashboard Screen
 ![Dashboard Screen](screenshots/Dashboard.png)
