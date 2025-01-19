@@ -46,7 +46,9 @@ If a user wants to edit a patient’s information at a later date, they can book
 - **MySQL**: Database system for storing and managing data.  
 - **SceneBuilder**: Tool for designing JavaFX user interfaces.
 
-## Screenshots
+<details>
+  <summary>Screenshots</summary>
+  
 1. Dashboard Screen
 ![Dashboard Screen](screenshots/Dashboard.png)
 2. Patients
